@@ -12,6 +12,7 @@ import net.minecraft.util.Identifier
 import net.minecraft.util.math.intprovider.UniformIntProvider
 import top.srcres258.tutorialmod.TutorialMod
 import top.srcres258.tutorialmod.block.custom.MagicBlock
+import top.srcres258.tutorialmod.block.custom.PinkGarnetLampBlock
 
 object ModBlocks {
     val PINK_GARNET_BLOCK: Block = registerBlock("pink_garnet_block",
@@ -42,7 +43,8 @@ object ModBlocks {
             .requiresTool()))
 
     val PINK_GARNET_STAIRS: Block = registerBlock("pink_garnet_stairs",
-        StairsBlock(PINK_GARNET_BLOCK.defaultState,
+        StairsBlock(
+            PINK_GARNET_BLOCK.defaultState,
             AbstractBlock.Settings.create()
                 .strength(2F)
                 .requiresTool()
@@ -90,6 +92,12 @@ object ModBlocks {
                 .strength(2F)
                 .requiresTool()
                 .nonOpaque()))
+
+    val PINK_GARNET_LAMP: Block = registerBlock("pink_garnet_lamp",
+        PinkGarnetLampBlock(AbstractBlock.Settings.create()
+            .strength(1F)
+            .requiresTool()
+            .luminance { state -> if (state.get(PinkGarnetLampBlock.CLICKED)) 15 else 0 }))
 
     private fun registerBlock(name: String, block: Block) =
         Registry.register(Registries.BLOCK, Identifier.of(TutorialMod.MOD_ID, name),

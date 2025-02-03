@@ -5,7 +5,11 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider
 import net.minecraft.data.client.BlockStateModelGenerator
 import net.minecraft.data.client.ItemModelGenerator
 import net.minecraft.data.client.Models
+import net.minecraft.data.client.TextureMap
+import net.minecraft.data.client.TexturedModel
+import net.minecraft.data.client.VariantsBlockStateSupplier
 import top.srcres258.tutorialmod.block.ModBlocks
+import top.srcres258.tutorialmod.block.custom.PinkGarnetLampBlock
 import top.srcres258.tutorialmod.item.ModItems
 
 class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
@@ -31,6 +35,15 @@ class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
 
         generator.registerDoor(ModBlocks.PINK_GARNET_DOOR)
         generator.registerTrapdoor(ModBlocks.PINK_GARNET_TRAPDOOR)
+
+        Pair(
+            TexturedModel.CUBE_ALL.upload(ModBlocks.PINK_GARNET_LAMP, generator.modelCollector),
+            generator.createSubModel(ModBlocks.PINK_GARNET_LAMP, "_on", Models.CUBE_ALL, TextureMap::all)
+        ).let { (lampOffId, lampOnId) ->
+            generator.blockStateCollector.accept(VariantsBlockStateSupplier.create(ModBlocks.PINK_GARNET_LAMP)
+                .coordinate(BlockStateModelGenerator.createBooleanModelMap(PinkGarnetLampBlock.CLICKED,
+                    lampOnId, lampOffId)))
+        }
     }
 
     override fun generateItemModels(generator: ItemModelGenerator) {
