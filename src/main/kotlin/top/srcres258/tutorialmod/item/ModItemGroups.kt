@@ -19,6 +19,8 @@ object ModItemGroups {
             .entries { displayContext, entries ->
                 entries.add(ModItems.PINK_GARNET)
                 entries.add(ModItems.RAW_PINK_GARNET)
+
+                entries.add(ModItems.CHISEL)
             }
             .build())
     val PINK_GARNET_BLOCKS_GROUP: ItemGroup = Registry.register(Registries.ITEM_GROUP,
