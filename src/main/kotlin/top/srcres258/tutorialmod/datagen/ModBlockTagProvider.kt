@@ -23,5 +23,12 @@ class ModBlockTagProvider(
 
         goctb(BlockTags.NEEDS_IRON_TOOL)
             .add(ModBlocks.PINK_GARNET_DEEPSLATE_ORE)
+
+        goctb(BlockTags.FENCES)
+            .add(ModBlocks.PINK_GARNET_FENCE)
+        goctb(BlockTags.FENCE_GATES)
+            .add(ModBlocks.PINK_GARNET_FENCE_GATE)
+        goctb(BlockTags.WALLS)
+            .add(ModBlocks.PINK_GARNET_WALL)
     }
 }

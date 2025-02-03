@@ -10,14 +10,27 @@ import top.srcres258.tutorialmod.item.ModItems
 
 class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
     override fun generateBlockStateModels(generator: BlockStateModelGenerator) {
+        generator.registerCubeAllModelTexturePool(ModBlocks.PINK_GARNET_BLOCK).run {
+            stairs(ModBlocks.PINK_GARNET_STAIRS)
+            slab(ModBlocks.PINK_GARNET_SLAB)
+
+            button(ModBlocks.PINK_GARNET_BUTTON)
+            pressurePlate(ModBlocks.PINK_GARNET_PRESSURE_PLATE)
+
+            fence(ModBlocks.PINK_GARNET_FENCE)
+            fenceGate(ModBlocks.PINK_GARNET_FENCE_GATE)
+            wall(ModBlocks.PINK_GARNET_WALL)
+        }
         generator::registerSimpleCubeAll.let { rsca ->
-            rsca(ModBlocks.PINK_GARNET_BLOCK)
             rsca(ModBlocks.RAW_PINK_GARNET_BLOCK)
             rsca(ModBlocks.PINK_GARNET_ORE)
             rsca(ModBlocks.PINK_GARNET_DEEPSLATE_ORE)
 
             rsca(ModBlocks.MAGIC_BLOCK)
         }
+
+        generator.registerDoor(ModBlocks.PINK_GARNET_DOOR)
+        generator.registerTrapdoor(ModBlocks.PINK_GARNET_TRAPDOOR)
     }
 
     override fun generateItemModels(generator: ItemModelGenerator) {
