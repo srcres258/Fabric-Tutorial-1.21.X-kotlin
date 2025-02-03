@@ -13,6 +13,7 @@ import net.minecraft.sound.BlockSoundGroup
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.intprovider.UniformIntProvider
 import top.srcres258.tutorialmod.TutorialMod
+import top.srcres258.tutorialmod.block.custom.MagicBlock
 
 object ModBlocks {
     val PINK_GARNET_BLOCK: Block = registerBlock("pink_garnet_block",
@@ -36,6 +37,11 @@ object ModBlocks {
                 .strength(4F)
                 .requiresTool()
                 .sounds(BlockSoundGroup.DEEPSLATE)))
+
+    val MAGIC_BLOCK: Block = registerBlock("magic_block",
+        MagicBlock(AbstractBlock.Settings.create()
+            .strength(1F)
+            .requiresTool()))
 
     private fun registerBlock(name: String, block: Block) =
         Registry.register(Registries.BLOCK, Identifier.of(TutorialMod.MOD_ID, name),
