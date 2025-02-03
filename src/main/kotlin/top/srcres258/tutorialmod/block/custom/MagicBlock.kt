@@ -16,7 +16,7 @@ import net.minecraft.util.ActionResult
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.math.BlockPos
 import net.minecraft.world.World
-import top.srcres258.tutorialmod.item.ModItems
+import top.srcres258.tutorialmod.util.ModTags
 
 class MagicBlock(settings: Settings) : Block(settings) {
     override fun onUse(
@@ -32,7 +32,7 @@ class MagicBlock(settings: Settings) : Block(settings) {
 
     override fun onSteppedOn(world: World, pos: BlockPos, state: BlockState, entity: Entity) {
         if (entity is ItemEntity) {
-            if (entity.stack.item == ModItems.RAW_PINK_GARNET) {
+            if (isValidItem(entity.stack)) {
                 entity.stack = ItemStack(Items.DIAMOND, entity.stack.count)
             }
         }
@@ -50,3 +50,5 @@ class MagicBlock(settings: Settings) : Block(settings) {
         super.appendTooltip(stack, context, tooltip, options)
     }
 }
+
+private fun isValidItem(stack: ItemStack) = stack.isIn(ModTags.Items.TRANSFORMABLE_ITEMS)
