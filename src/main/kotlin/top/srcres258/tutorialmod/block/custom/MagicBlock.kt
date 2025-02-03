@@ -5,10 +5,13 @@ import net.minecraft.block.BlockState
 import net.minecraft.entity.Entity
 import net.minecraft.entity.ItemEntity
 import net.minecraft.entity.player.PlayerEntity
+import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.Items
+import net.minecraft.item.tooltip.TooltipType
 import net.minecraft.sound.SoundCategory
 import net.minecraft.sound.SoundEvents
+import net.minecraft.text.Text
 import net.minecraft.util.ActionResult
 import net.minecraft.util.hit.BlockHitResult
 import net.minecraft.util.math.BlockPos
@@ -35,5 +38,15 @@ class MagicBlock(settings: Settings) : Block(settings) {
         }
 
         super.onSteppedOn(world, pos, state, entity)
+    }
+
+    override fun appendTooltip(
+        stack: ItemStack,
+        context: Item.TooltipContext,
+        tooltip: MutableList<Text>,
+        options: TooltipType
+    ) {
+        tooltip.add(Text.translatable("tooltip.tutorialmod.magic_block.tooltip"))
+        super.appendTooltip(stack, context, tooltip, options)
     }
 }
