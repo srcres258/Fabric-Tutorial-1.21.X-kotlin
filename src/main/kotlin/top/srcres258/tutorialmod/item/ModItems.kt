@@ -1,9 +1,14 @@
 package top.srcres258.tutorialmod.item
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
+import net.minecraft.item.AxeItem
+import net.minecraft.item.HoeItem
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroups
 import net.minecraft.item.ItemStack
+import net.minecraft.item.PickaxeItem
+import net.minecraft.item.ShovelItem
+import net.minecraft.item.SwordItem
 import net.minecraft.item.tooltip.TooltipType
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
@@ -32,6 +37,22 @@ object ModItems {
         })
 
     val STARLIGHT_ASHES: Item = registerItem("starlight_ashes", Item(Item.Settings()))
+
+    val PINK_GARNET_SWORD: Item = registerItem("pink_garnet_sword",
+        SwordItem(ModToolMaterials.PINK_GARNET, Item.Settings()
+            .attributeModifiers(SwordItem.createAttributeModifiers(ModToolMaterials.PINK_GARNET, 3, -2.4F))))
+    val PINK_GARNET_PICKAXE: Item = registerItem("pink_garnet_pickaxe",
+        PickaxeItem(ModToolMaterials.PINK_GARNET, Item.Settings()
+            .attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.PINK_GARNET, 1F, -2.8F))))
+    val PINK_GARNET_SHOVEL: Item = registerItem("pink_garnet_shovel",
+        ShovelItem(ModToolMaterials.PINK_GARNET, Item.Settings()
+            .attributeModifiers(ShovelItem.createAttributeModifiers(ModToolMaterials.PINK_GARNET, 1.5F, -3F))))
+    val PINK_GARNET_AXE: Item = registerItem("pink_garnet_axe",
+        AxeItem(ModToolMaterials.PINK_GARNET, Item.Settings()
+            .attributeModifiers(AxeItem.createAttributeModifiers(ModToolMaterials.PINK_GARNET, 6F, -3.2F))))
+    val PINK_GARNET_HOE: Item = registerItem("pink_garnet_hoe",
+        HoeItem(ModToolMaterials.PINK_GARNET, Item.Settings()
+            .attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.PINK_GARNET, 0F, -3F))))
 
     private fun registerItem(name: String, item: Item) =
         Registry.register(Registries.ITEM, Identifier.of(TutorialMod.MOD_ID, name), item)

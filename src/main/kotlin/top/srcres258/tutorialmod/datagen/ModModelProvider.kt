@@ -53,5 +53,11 @@ class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
         generator.register(ModItems.CAULIFLOWER, Models.GENERATED)
         generator.register(ModItems.CHISEL, Models.GENERATED)
         generator.register(ModItems.STARLIGHT_ASHES, Models.GENERATED)
+
+        generator.register(ModItems.PINK_GARNET_SWORD, Models.HANDHELD)
+        generator.register(ModItems.PINK_GARNET_PICKAXE, Models.HANDHELD)
+        generator.register(ModItems.PINK_GARNET_SHOVEL, Models.HANDHELD)
+        generator.register(ModItems.PINK_GARNET_AXE, Models.HANDHELD)
+        generator.register(ModItems.PINK_GARNET_HOE, Models.HANDHELD)
     }
 }
