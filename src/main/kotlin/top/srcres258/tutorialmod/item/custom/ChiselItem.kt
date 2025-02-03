@@ -15,6 +15,7 @@ import net.minecraft.sound.SoundEvents
 import net.minecraft.text.Text
 import net.minecraft.util.ActionResult
 import top.srcres258.tutorialmod.block.ModBlocks
+import top.srcres258.tutorialmod.component.ModDataComponentTypes
 
 private val CHISEL_MAP = mapOf<Block, Block>(
     Pair(Blocks.STONE, Blocks.STONE_BRICKS),
@@ -38,6 +39,8 @@ class ChiselItem(settings: Settings) : Item(settings) {
 
                     world.playSound(null, context.blockPos, SoundEvents.BLOCK_GRINDSTONE_USE,
                         SoundCategory.BLOCKS)
+
+                    context.stack.set(ModDataComponentTypes.COORDINATES, context.blockPos)
                 }
             }
         }
@@ -53,6 +56,10 @@ class ChiselItem(settings: Settings) : Item(settings) {
     ) {
         tooltip.add(Text.translatable(if (Screen.hasShiftDown()) "tooltip.tutorialmod.chisel.shift_down" else
             "tooltip.tutorialmod.chisel"))
+
+        stack.get(ModDataComponentTypes.COORDINATES)?.let { coords ->
+            tooltip.add(Text.literal("Last Block Changed at $coords"))
+        }
 
         super.appendTooltip(stack, context, tooltip, type)
     }
