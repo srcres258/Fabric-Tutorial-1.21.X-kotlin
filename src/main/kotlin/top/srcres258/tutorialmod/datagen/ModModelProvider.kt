@@ -8,6 +8,7 @@ import net.minecraft.data.client.Models
 import net.minecraft.data.client.TextureMap
 import net.minecraft.data.client.TexturedModel
 import net.minecraft.data.client.VariantsBlockStateSupplier
+import net.minecraft.item.ArmorItem
 import top.srcres258.tutorialmod.block.ModBlocks
 import top.srcres258.tutorialmod.block.custom.PinkGarnetLampBlock
 import top.srcres258.tutorialmod.item.ModItems
@@ -61,5 +62,10 @@ class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
         generator.register(ModItems.PINK_GARNET_HOE, Models.HANDHELD)
 
         generator.register(ModItems.PINK_GARNET_HAMMER, Models.HANDHELD)
+
+        generator.registerArmor(ModItems.PINK_GARNET_HELMET as ArmorItem)
+        generator.registerArmor(ModItems.PINK_GARNET_CHESTPLATE as ArmorItem)
+        generator.registerArmor(ModItems.PINK_GARNET_LEGGINGS as ArmorItem)
+        generator.registerArmor(ModItems.PINK_GARNET_BOOTS as ArmorItem)
     }
 }

@@ -33,5 +33,11 @@ class ModItemTagProvider(
             .add(ModItems.PINK_GARNET_AXE)
         goctb(ItemTags.HOES)
             .add(ModItems.PINK_GARNET_HOE)
+
+        goctb(ItemTags.TRIMMABLE_ARMOR)
+            .add(ModItems.PINK_GARNET_HELMET)
+            .add(ModItems.PINK_GARNET_CHESTPLATE)
+            .add(ModItems.PINK_GARNET_LEGGINGS)
+            .add(ModItems.PINK_GARNET_BOOTS)
     }
 }

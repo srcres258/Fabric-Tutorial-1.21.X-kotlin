@@ -1,6 +1,7 @@
 package top.srcres258.tutorialmod.item
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
+import net.minecraft.item.ArmorItem
 import net.minecraft.item.AxeItem
 import net.minecraft.item.HoeItem
 import net.minecraft.item.Item
@@ -58,6 +59,15 @@ object ModItems {
     val PINK_GARNET_HAMMER: Item = registerItem("pink_garnet_hammer",
         HammerItem(ModToolMaterials.PINK_GARNET, Item.Settings()
             .attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.PINK_GARNET, 7F, -3.4F))))
+
+    val PINK_GARNET_HELMET: Item = registerArmorItem("pink_garnet_helmet", ArmorItem.Type.HELMET)
+    val PINK_GARNET_CHESTPLATE: Item = registerArmorItem("pink_garnet_chestplate", ArmorItem.Type.CHESTPLATE)
+    val PINK_GARNET_LEGGINGS: Item = registerArmorItem("pink_garnet_leggings", ArmorItem.Type.LEGGINGS)
+    val PINK_GARNET_BOOTS: Item = registerArmorItem("pink_garnet_boots", ArmorItem.Type.BOOTS)
+
+    private fun registerArmorItem(name: String, type: ArmorItem.Type, maxDamage: Int = 15) =
+        registerItem(name, ArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, type, Item.Settings()
+            .maxDamage(type.getMaxDamage(maxDamage))))
 
     private fun registerItem(name: String, item: Item) =
         Registry.register(Registries.ITEM, Identifier.of(TutorialMod.MOD_ID, name), item)
