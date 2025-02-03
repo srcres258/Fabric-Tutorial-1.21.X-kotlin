@@ -16,6 +16,7 @@ import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import top.srcres258.tutorialmod.TutorialMod
 import top.srcres258.tutorialmod.item.custom.ChiselItem
+import top.srcres258.tutorialmod.item.custom.HammerItem
 
 object ModItems {
     val PINK_GARNET: Item = registerItem("pink_garnet", Item(Item.Settings()))
@@ -53,6 +54,10 @@ object ModItems {
     val PINK_GARNET_HOE: Item = registerItem("pink_garnet_hoe",
         HoeItem(ModToolMaterials.PINK_GARNET, Item.Settings()
             .attributeModifiers(HoeItem.createAttributeModifiers(ModToolMaterials.PINK_GARNET, 0F, -3F))))
+
+    val PINK_GARNET_HAMMER: Item = registerItem("pink_garnet_hammer",
+        HammerItem(ModToolMaterials.PINK_GARNET, Item.Settings()
+            .attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.PINK_GARNET, 7F, -3.4F))))
 
     private fun registerItem(name: String, item: Item) =
         Registry.register(Registries.ITEM, Identifier.of(TutorialMod.MOD_ID, name), item)
