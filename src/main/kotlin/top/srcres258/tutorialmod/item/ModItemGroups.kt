@@ -21,6 +21,10 @@ object ModItemGroups {
                 entries.add(ModItems.RAW_PINK_GARNET)
 
                 entries.add(ModItems.CHISEL)
+
+                entries.add(ModItems.CAULIFLOWER)
+
+                entries.add(ModItems.STARLIGHT_ASHES)
             }
             .build())
     val PINK_GARNET_BLOCKS_GROUP: ItemGroup = Registry.register(Registries.ITEM_GROUP,

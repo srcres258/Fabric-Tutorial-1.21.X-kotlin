@@ -15,6 +15,10 @@ object ModItems {
 
     val CHISEL: Item = registerItem("chisel", ChiselItem(Item.Settings().maxDamage(32)))
 
+    val CAULIFLOWER: Item = registerItem("cauliflower", Item(Item.Settings().food(ModFoodComponents.CAULIFLOWER)))
+
+    val STARLIGHT_ASHES: Item = registerItem("starlight_ashes", Item(Item.Settings()))
+
     private fun registerItem(name: String, item: Item) =
         Registry.register(Registries.ITEM, Identifier.of(TutorialMod.MOD_ID, name), item)
 
