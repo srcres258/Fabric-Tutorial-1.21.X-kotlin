@@ -40,6 +40,8 @@ object ModItemGroups {
                 entries.add(ModItems.PINK_GARNET_BOOTS)
 
                 entries.add(ModItems.PINK_GARNET_HORSE_ARMOR)
+
+                entries.add(ModItems.KAUPEN_SMITHING_TEMPLATE)
             }
             .build())
     val PINK_GARNET_BLOCKS_GROUP: ItemGroup = Registry.register(Registries.ITEM_GROUP,

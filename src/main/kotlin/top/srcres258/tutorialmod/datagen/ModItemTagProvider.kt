@@ -39,5 +39,11 @@ class ModItemTagProvider(
             .add(ModItems.PINK_GARNET_CHESTPLATE)
             .add(ModItems.PINK_GARNET_LEGGINGS)
             .add(ModItems.PINK_GARNET_BOOTS)
+
+        goctb(ItemTags.TRIM_MATERIALS)
+            .add(ModItems.PINK_GARNET)
+
+        goctb(ItemTags.TRIM_TEMPLATES)
+            .add(ModItems.KAUPEN_SMITHING_TEMPLATE)
     }
 }

@@ -5,6 +5,7 @@ import net.minecraft.item.*
 import net.minecraft.item.tooltip.TooltipType
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
+import net.minecraft.resource.featuretoggle.FeatureFlags
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import top.srcres258.tutorialmod.TutorialMod
@@ -61,6 +62,9 @@ object ModItems {
     val PINK_GARNET_HORSE_ARMOR: Item = registerItem("pink_garnet_horse_armor",
         AnimalArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, AnimalArmorItem.Type.EQUESTRIAN, false,
             Item.Settings().maxCount(1)))
+
+    val KAUPEN_SMITHING_TEMPLATE: Item = registerItem("kaupen_armor_trim_smithing_template",
+        SmithingTemplateItem.of(Identifier.of(TutorialMod.MOD_ID, "kaupen"), FeatureFlags.VANILLA))
 
     private inline fun <reified T : ArmorItem> registerArmorItem(
         name: String,
