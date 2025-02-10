@@ -66,6 +66,9 @@ object ModItems {
     val KAUPEN_SMITHING_TEMPLATE: Item = registerItem("kaupen_armor_trim_smithing_template",
         SmithingTemplateItem.of(Identifier.of(TutorialMod.MOD_ID, "kaupen"), FeatureFlags.VANILLA))
 
+    val KAUPEN_BOW: Item = registerItem("kaupen_bow",
+        BowItem(Item.Settings().maxDamage(500)))
+
     private inline fun <reified T : ArmorItem> registerArmorItem(
         name: String,
         type: ArmorItem.Type,
