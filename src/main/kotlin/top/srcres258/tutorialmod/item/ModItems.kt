@@ -18,6 +18,8 @@ import net.minecraft.util.Identifier
 import top.srcres258.tutorialmod.TutorialMod
 import top.srcres258.tutorialmod.item.custom.ChiselItem
 import top.srcres258.tutorialmod.item.custom.HammerItem
+import top.srcres258.tutorialmod.item.custom.ModArmorItem
+import kotlin.reflect.full.primaryConstructor
 
 object ModItems {
     val PINK_GARNET: Item = registerItem("pink_garnet", Item(Item.Settings()))
@@ -60,14 +62,24 @@ object ModItems {
         HammerItem(ModToolMaterials.PINK_GARNET, Item.Settings()
             .attributeModifiers(PickaxeItem.createAttributeModifiers(ModToolMaterials.PINK_GARNET, 7F, -3.4F))))
 
-    val PINK_GARNET_HELMET: Item = registerArmorItem("pink_garnet_helmet", ArmorItem.Type.HELMET)
-    val PINK_GARNET_CHESTPLATE: Item = registerArmorItem("pink_garnet_chestplate", ArmorItem.Type.CHESTPLATE)
-    val PINK_GARNET_LEGGINGS: Item = registerArmorItem("pink_garnet_leggings", ArmorItem.Type.LEGGINGS)
-    val PINK_GARNET_BOOTS: Item = registerArmorItem("pink_garnet_boots", ArmorItem.Type.BOOTS)
+    val PINK_GARNET_HELMET: Item = registerArmorItem<ModArmorItem>("pink_garnet_helmet", ArmorItem.Type.HELMET)
+    val PINK_GARNET_CHESTPLATE: Item = registerArmorItem<ArmorItem>("pink_garnet_chestplate", ArmorItem.Type.CHESTPLATE)
+    val PINK_GARNET_LEGGINGS: Item = registerArmorItem<ArmorItem>("pink_garnet_leggings", ArmorItem.Type.LEGGINGS)
+    val PINK_GARNET_BOOTS: Item = registerArmorItem<ArmorItem>("pink_garnet_boots", ArmorItem.Type.BOOTS)
 
-    private fun registerArmorItem(name: String, type: ArmorItem.Type, maxDamage: Int = 15) =
-        registerItem(name, ArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, type, Item.Settings()
-            .maxDamage(type.getMaxDamage(maxDamage))))
+    private inline fun <reified T : ArmorItem> registerArmorItem(
+        name: String,
+        type: ArmorItem.Type,
+        maxDamage: Int = 15
+    ) = registerItem(
+        name,
+        T::class.constructors.toList()[0]
+            .call(
+                ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL,
+                type,
+                Item.Settings().maxDamage(type.getMaxDamage(maxDamage))
+            )
+    )
 
     private fun registerItem(name: String, item: Item) =
         Registry.register(Registries.ITEM, Identifier.of(TutorialMod.MOD_ID, name), item)
