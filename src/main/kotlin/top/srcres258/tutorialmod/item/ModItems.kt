@@ -1,15 +1,7 @@
 package top.srcres258.tutorialmod.item
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
-import net.minecraft.item.ArmorItem
-import net.minecraft.item.AxeItem
-import net.minecraft.item.HoeItem
-import net.minecraft.item.Item
-import net.minecraft.item.ItemGroups
-import net.minecraft.item.ItemStack
-import net.minecraft.item.PickaxeItem
-import net.minecraft.item.ShovelItem
-import net.minecraft.item.SwordItem
+import net.minecraft.item.*
 import net.minecraft.item.tooltip.TooltipType
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
@@ -19,7 +11,6 @@ import top.srcres258.tutorialmod.TutorialMod
 import top.srcres258.tutorialmod.item.custom.ChiselItem
 import top.srcres258.tutorialmod.item.custom.HammerItem
 import top.srcres258.tutorialmod.item.custom.ModArmorItem
-import kotlin.reflect.full.primaryConstructor
 
 object ModItems {
     val PINK_GARNET: Item = registerItem("pink_garnet", Item(Item.Settings()))
@@ -66,6 +57,10 @@ object ModItems {
     val PINK_GARNET_CHESTPLATE: Item = registerArmorItem<ArmorItem>("pink_garnet_chestplate", ArmorItem.Type.CHESTPLATE)
     val PINK_GARNET_LEGGINGS: Item = registerArmorItem<ArmorItem>("pink_garnet_leggings", ArmorItem.Type.LEGGINGS)
     val PINK_GARNET_BOOTS: Item = registerArmorItem<ArmorItem>("pink_garnet_boots", ArmorItem.Type.BOOTS)
+
+    val PINK_GARNET_HORSE_ARMOR: Item = registerItem("pink_garnet_horse_armor",
+        AnimalArmorItem(ModArmorMaterials.PINK_GARNET_ARMOR_MATERIAL, AnimalArmorItem.Type.EQUESTRIAN, false,
+            Item.Settings().maxCount(1)))
 
     private inline fun <reified T : ArmorItem> registerArmorItem(
         name: String,
