@@ -14,6 +14,7 @@ import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import top.srcres258.tutorialmod.block.ModBlocks
 import top.srcres258.tutorialmod.component.ModDataComponentTypes
+import top.srcres258.tutorialmod.effect.ModEffects
 import top.srcres258.tutorialmod.item.ModItemGroups
 import top.srcres258.tutorialmod.item.ModItems
 import top.srcres258.tutorialmod.sound.ModSounds
@@ -29,6 +30,7 @@ object TutorialMod : ModInitializer {
 		ModItemGroups.registerItemGroups()
 		ModDataComponentTypes.registerDataComponentTypes()
 		ModSounds.registerSounds()
+		ModEffects.registerEffects()
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600)
 
