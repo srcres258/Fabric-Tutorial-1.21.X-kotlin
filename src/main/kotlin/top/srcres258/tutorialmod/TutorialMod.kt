@@ -3,11 +3,13 @@ package top.srcres258.tutorialmod
 import net.fabricmc.api.ModInitializer
 import net.fabricmc.fabric.api.event.player.AttackEntityCallback
 import net.fabricmc.fabric.api.event.player.PlayerBlockBreakEvents
+import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder
 import net.fabricmc.fabric.api.registry.FuelRegistry
 import net.minecraft.entity.effect.StatusEffectInstance
 import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.entity.passive.SheepEntity
 import net.minecraft.item.Items
+import net.minecraft.potion.Potions
 import net.minecraft.text.Text
 import net.minecraft.util.ActionResult
 import org.slf4j.Logger
@@ -17,6 +19,7 @@ import top.srcres258.tutorialmod.component.ModDataComponentTypes
 import top.srcres258.tutorialmod.effect.ModEffects
 import top.srcres258.tutorialmod.item.ModItemGroups
 import top.srcres258.tutorialmod.item.ModItems
+import top.srcres258.tutorialmod.potion.ModPotions
 import top.srcres258.tutorialmod.sound.ModSounds
 import top.srcres258.tutorialmod.util.HammerUsageEvent
 
@@ -31,6 +34,7 @@ object TutorialMod : ModInitializer {
 		ModDataComponentTypes.registerDataComponentTypes()
 		ModSounds.registerSounds()
 		ModEffects.registerEffects()
+		ModPotions.registerPotions()
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600)
 
@@ -46,6 +50,10 @@ object TutorialMod : ModInitializer {
 			}
 
 			ActionResult.PASS
+		}
+
+		FabricBrewingRecipeRegistryBuilder.BUILD.register { builder ->
+			builder.registerPotionRecipe(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.SLIMEY_POTION)
 		}
 	}
 }
