@@ -36,6 +36,8 @@
 
   "item.tutorialmod.cauliflower_seeds": "Cauliflower Seeds",
 
+  "item.tutorialmod.honey_berries": "Honey Berries",
+
   "block.tutorialmod.pink_garnet_block": "Block of Pink Garnet",
   "block.tutorialmod.raw_pink_garnet_block": "Block of Raw Pink Garnet",
 
@@ -58,6 +60,8 @@
   "block.tutorialmod.pink_garnet_trapdoor": "Pink Garnet Trapdoor",
 
   "block.tutorialmod.pink_garnet_lamp": "Pink Garnet Lamp",
+
+  "block.tutorialmod.honey_berry_bush": "Honey Berry Bush",
 
   "effect.tutorialmod.slimey": "Slimey",
 

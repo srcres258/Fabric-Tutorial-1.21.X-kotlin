@@ -13,6 +13,7 @@ import net.minecraft.util.Identifier
 import net.minecraft.util.math.intprovider.UniformIntProvider
 import top.srcres258.tutorialmod.TutorialMod
 import top.srcres258.tutorialmod.block.custom.CauliflowerCropBlock
+import top.srcres258.tutorialmod.block.custom.HoneyBerryBushBlock
 import top.srcres258.tutorialmod.block.custom.MagicBlock
 import top.srcres258.tutorialmod.block.custom.PinkGarnetLampBlock
 import top.srcres258.tutorialmod.sound.ModSounds
@@ -111,6 +112,9 @@ object ModBlocks {
             .sounds(BlockSoundGroup.CROP)
             .pistonBehavior(PistonBehavior.DESTROY)
             .mapColor(MapColor.DARK_GREEN)))
+
+    val HONEY_BERRY_BUSH: Block = registerBlockWithoutBlockItem("honey_berry_bush",
+        HoneyBerryBushBlock(AbstractBlock.Settings.copy(Blocks.SWEET_BERRY_BUSH)))
 
     private fun registerBlockWithoutBlockItem(name: String, block: Block) =
         Registry.register(Registries.BLOCK, Identifier.of(TutorialMod.MOD_ID, name), block)

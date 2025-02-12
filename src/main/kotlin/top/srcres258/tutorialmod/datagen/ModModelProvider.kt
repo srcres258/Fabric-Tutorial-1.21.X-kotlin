@@ -2,15 +2,11 @@ package top.srcres258.tutorialmod.datagen
 
 import net.fabricmc.fabric.api.datagen.v1.FabricDataOutput
 import net.fabricmc.fabric.api.datagen.v1.provider.FabricModelProvider
-import net.minecraft.data.client.BlockStateModelGenerator
-import net.minecraft.data.client.ItemModelGenerator
-import net.minecraft.data.client.Models
-import net.minecraft.data.client.TextureMap
-import net.minecraft.data.client.TexturedModel
-import net.minecraft.data.client.VariantsBlockStateSupplier
+import net.minecraft.data.client.*
 import net.minecraft.item.ArmorItem
 import top.srcres258.tutorialmod.block.ModBlocks
 import top.srcres258.tutorialmod.block.custom.CauliflowerCropBlock
+import top.srcres258.tutorialmod.block.custom.HoneyBerryBushBlock
 import top.srcres258.tutorialmod.block.custom.PinkGarnetLampBlock
 import top.srcres258.tutorialmod.item.ModItems
 
@@ -49,6 +45,12 @@ class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
 
         generator.registerCrop(ModBlocks.CAULIFLOWER_CROP, CauliflowerCropBlock.AGE,
             *(0 .. CauliflowerCropBlock.MAX_AGE).toList().toIntArray())
+        generator.registerTintableCrossBlockStateWithStages(
+            ModBlocks.HONEY_BERRY_BUSH,
+            BlockStateModelGenerator.TintType.NOT_TINTED,
+            HoneyBerryBushBlock.AGE,
+            *(0 .. 3).toList().toIntArray()
+        )
     }
 
     override fun generateItemModels(generator: ItemModelGenerator) {

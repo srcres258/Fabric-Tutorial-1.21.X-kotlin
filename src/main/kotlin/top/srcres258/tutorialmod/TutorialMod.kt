@@ -62,6 +62,7 @@ object TutorialMod : ModInitializer {
 		CompostingChanceRegistry.INSTANCE.run {
 			add(ModItems.CAULIFLOWER, 0.5F)
 			add(ModItems.CAULIFLOWER_SEEDS, 0.25F)
+			add(ModItems.HONEY_BERRIES, 0.15F)
 		}
 	}
 }

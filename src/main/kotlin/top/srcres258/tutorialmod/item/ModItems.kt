@@ -77,6 +77,9 @@ object ModItems {
     val CAULIFLOWER_SEEDS: Item = registerItem("cauliflower_seeds",
         AliasedBlockItem(ModBlocks.CAULIFLOWER_CROP, Item.Settings()))
 
+    val HONEY_BERRIES: Item = registerItem("honey_berries",
+        AliasedBlockItem(ModBlocks.HONEY_BERRY_BUSH, Item.Settings().food(ModFoodComponents.HONEY_BERRY)))
+
     private inline fun <reified T : ArmorItem> registerArmorItem(
         name: String,
         type: ArmorItem.Type,

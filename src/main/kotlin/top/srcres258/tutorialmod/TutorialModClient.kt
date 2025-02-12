@@ -13,6 +13,7 @@ object TutorialModClient : ClientModInitializer {
             putBlock(ModBlocks.PINK_GARNET_TRAPDOOR, RenderLayer.getCutout())
 
             putBlock(ModBlocks.CAULIFLOWER_CROP, RenderLayer.getCutout())
+            putBlock(ModBlocks.HONEY_BERRY_BUSH, RenderLayer.getCutout())
 
             ModModelPredicates.registerModelPredicates()
         }
