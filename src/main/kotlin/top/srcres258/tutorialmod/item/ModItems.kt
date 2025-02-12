@@ -9,6 +9,7 @@ import net.minecraft.resource.featuretoggle.FeatureFlags
 import net.minecraft.text.Text
 import net.minecraft.util.Identifier
 import top.srcres258.tutorialmod.TutorialMod
+import top.srcres258.tutorialmod.block.ModBlocks
 import top.srcres258.tutorialmod.item.custom.ChiselItem
 import top.srcres258.tutorialmod.item.custom.HammerItem
 import top.srcres258.tutorialmod.item.custom.ModArmorItem
@@ -72,6 +73,9 @@ object ModItems {
 
     val BAR_BRAWL_MUSIC_DISC: Item = registerItem("bar_brawl_music_disc",
         Item(Item.Settings().jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).maxCount(1)))
+
+    val CAULIFLOWER_SEEDS: Item = registerItem("cauliflower_seeds",
+        AliasedBlockItem(ModBlocks.CAULIFLOWER_CROP, Item.Settings()))
 
     private inline fun <reified T : ArmorItem> registerArmorItem(
         name: String,

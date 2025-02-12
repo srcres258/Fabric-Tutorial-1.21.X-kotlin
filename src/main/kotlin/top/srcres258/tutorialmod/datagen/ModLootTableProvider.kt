@@ -5,13 +5,16 @@ import net.fabricmc.fabric.api.datagen.v1.provider.FabricBlockLootTableProvider
 import net.minecraft.block.Block
 import net.minecraft.enchantment.Enchantments
 import net.minecraft.item.Item
+import net.minecraft.loot.condition.BlockStatePropertyLootCondition
 import net.minecraft.loot.entry.ItemEntry
 import net.minecraft.loot.function.ApplyBonusLootFunction
 import net.minecraft.loot.function.SetCountLootFunction
 import net.minecraft.loot.provider.number.UniformLootNumberProvider
+import net.minecraft.predicate.StatePredicate
 import net.minecraft.registry.RegistryKeys
 import net.minecraft.registry.RegistryWrapper
 import top.srcres258.tutorialmod.block.ModBlocks
+import top.srcres258.tutorialmod.block.custom.CauliflowerCropBlock
 import top.srcres258.tutorialmod.item.ModItems
 import java.util.concurrent.CompletableFuture
 
@@ -40,6 +43,18 @@ class ModLootTableProvider(
 
         addDrop(ModBlocks.PINK_GARNET_DOOR, doorDrops(ModBlocks.PINK_GARNET_DOOR))
         addDrop(ModBlocks.PINK_GARNET_TRAPDOOR)
+
+        addDrop(
+            ModBlocks.CAULIFLOWER_CROP,
+            cropDrops(
+                ModBlocks.CAULIFLOWER_CROP,
+                ModItems.CAULIFLOWER,
+                ModItems.CAULIFLOWER_SEEDS,
+                BlockStatePropertyLootCondition.builder(ModBlocks.CAULIFLOWER_CROP)
+                    .properties(StatePredicate.Builder.create()
+                        .exactMatch(CauliflowerCropBlock.AGE, CauliflowerCropBlock.MAX_AGE))
+            )
+        )
     }
 
     private fun multipleOreDrops(drop: Block, item: Item, minDrops: Float, maxDrops: Float) =

@@ -10,6 +10,7 @@ import net.minecraft.data.client.TexturedModel
 import net.minecraft.data.client.VariantsBlockStateSupplier
 import net.minecraft.item.ArmorItem
 import top.srcres258.tutorialmod.block.ModBlocks
+import top.srcres258.tutorialmod.block.custom.CauliflowerCropBlock
 import top.srcres258.tutorialmod.block.custom.PinkGarnetLampBlock
 import top.srcres258.tutorialmod.item.ModItems
 
@@ -45,6 +46,9 @@ class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
                 .coordinate(BlockStateModelGenerator.createBooleanModelMap(PinkGarnetLampBlock.CLICKED,
                     lampOnId, lampOffId)))
         }
+
+        generator.registerCrop(ModBlocks.CAULIFLOWER_CROP, CauliflowerCropBlock.AGE,
+            *(0 .. CauliflowerCropBlock.MAX_AGE).toList().toIntArray())
     }
 
     override fun generateItemModels(generator: ItemModelGenerator) {

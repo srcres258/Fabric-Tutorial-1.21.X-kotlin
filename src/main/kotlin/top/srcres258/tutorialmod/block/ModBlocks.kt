@@ -2,6 +2,7 @@ package top.srcres258.tutorialmod.block
 
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents
 import net.minecraft.block.*
+import net.minecraft.block.piston.PistonBehavior
 import net.minecraft.item.BlockItem
 import net.minecraft.item.Item
 import net.minecraft.item.ItemGroups
@@ -11,6 +12,7 @@ import net.minecraft.sound.BlockSoundGroup
 import net.minecraft.util.Identifier
 import net.minecraft.util.math.intprovider.UniformIntProvider
 import top.srcres258.tutorialmod.TutorialMod
+import top.srcres258.tutorialmod.block.custom.CauliflowerCropBlock
 import top.srcres258.tutorialmod.block.custom.MagicBlock
 import top.srcres258.tutorialmod.block.custom.PinkGarnetLampBlock
 import top.srcres258.tutorialmod.sound.ModSounds
@@ -100,6 +102,18 @@ object ModBlocks {
             .strength(1F)
             .requiresTool()
             .luminance { state -> if (state.get(PinkGarnetLampBlock.CLICKED)) 15 else 0 }))
+
+    val CAULIFLOWER_CROP: Block = registerBlockWithoutBlockItem("cauliflower_crop",
+        CauliflowerCropBlock(AbstractBlock.Settings.create()
+            .noCollision()
+            .ticksRandomly()
+            .breakInstantly()
+            .sounds(BlockSoundGroup.CROP)
+            .pistonBehavior(PistonBehavior.DESTROY)
+            .mapColor(MapColor.DARK_GREEN)))
+
+    private fun registerBlockWithoutBlockItem(name: String, block: Block) =
+        Registry.register(Registries.BLOCK, Identifier.of(TutorialMod.MOD_ID, name), block)
 
     private fun registerBlock(name: String, block: Block) =
         Registry.register(Registries.BLOCK, Identifier.of(TutorialMod.MOD_ID, name),
