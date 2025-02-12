@@ -15,5 +15,6 @@ class ModRegistryDataGenerator(
     override fun configure(registries: RegistryWrapper.WrapperLookup, entries: Entries) {
         entries.addAll(registries.getWrapperOrThrow(RegistryKeys.TRIM_MATERIAL))
         entries.addAll(registries.getWrapperOrThrow(RegistryKeys.TRIM_PATTERN))
+        entries.addAll(registries.getWrapperOrThrow(RegistryKeys.ENCHANTMENT))
     }
 }

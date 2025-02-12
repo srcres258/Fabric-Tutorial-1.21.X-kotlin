@@ -4,6 +4,9 @@ import net.minecraft.block.Block
 import net.minecraft.block.Blocks
 import net.minecraft.client.gui.screen.Screen
 import net.minecraft.entity.EquipmentSlot
+import net.minecraft.entity.LivingEntity
+import net.minecraft.entity.effect.StatusEffectInstance
+import net.minecraft.entity.effect.StatusEffects
 import net.minecraft.item.Item
 import net.minecraft.item.ItemStack
 import net.minecraft.item.ItemUsageContext
@@ -13,6 +16,8 @@ import net.minecraft.server.world.ServerWorld
 import net.minecraft.sound.SoundCategory
 import net.minecraft.text.Text
 import net.minecraft.util.ActionResult
+import net.minecraft.util.math.MathHelper
+import net.minecraft.util.math.random.Random
 import top.srcres258.tutorialmod.block.ModBlocks
 import top.srcres258.tutorialmod.component.ModDataComponentTypes
 import top.srcres258.tutorialmod.sound.ModSounds
@@ -25,6 +30,9 @@ private val CHISEL_MAP = mapOf<Block, Block>(
 )
 
 class ChiselItem(settings: Settings) : Item(settings) {
+    private var counter = 1
+    private val chanceToAddLevitation = MathHelper.nextInt(Random.create(), 1, 5)
+
     override fun useOnBlock(context: ItemUsageContext): ActionResult {
         val world = context.world
         val clickedBlock = world.getBlockState(context.blockPos).block
@@ -61,5 +69,20 @@ class ChiselItem(settings: Settings) : Item(settings) {
         }
 
         super.appendTooltip(stack, context, tooltip, type)
+    }
+
+    override fun postHit(
+        stack: ItemStack,
+        target: LivingEntity,
+        attacker: LivingEntity
+    ): Boolean {
+        if (counter <= chanceToAddLevitation) {
+            target.addStatusEffect(StatusEffectInstance(StatusEffects.HEALTH_BOOST, 50, 0), attacker)
+            counter = 1
+        } else {
+            counter++
+        }
+
+        return super.postHit(stack, target, attacker)
     }
 }
