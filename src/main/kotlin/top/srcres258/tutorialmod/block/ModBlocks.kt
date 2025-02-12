@@ -13,6 +13,7 @@ import net.minecraft.util.math.intprovider.UniformIntProvider
 import top.srcres258.tutorialmod.TutorialMod
 import top.srcres258.tutorialmod.block.custom.MagicBlock
 import top.srcres258.tutorialmod.block.custom.PinkGarnetLampBlock
+import top.srcres258.tutorialmod.sound.ModSounds
 
 object ModBlocks {
     val PINK_GARNET_BLOCK: Block = registerBlock("pink_garnet_block",
@@ -40,7 +41,8 @@ object ModBlocks {
     val MAGIC_BLOCK: Block = registerBlock("magic_block",
         MagicBlock(AbstractBlock.Settings.create()
             .strength(1F)
-            .requiresTool()))
+            .requiresTool()
+            .sounds(ModSounds.MAGIC_BLOCK_SOUNDS)))
 
     val PINK_GARNET_STAIRS: Block = registerBlock("pink_garnet_stairs",
         StairsBlock(

@@ -11,11 +11,11 @@ import net.minecraft.item.tooltip.TooltipType
 import net.minecraft.server.network.ServerPlayerEntity
 import net.minecraft.server.world.ServerWorld
 import net.minecraft.sound.SoundCategory
-import net.minecraft.sound.SoundEvents
 import net.minecraft.text.Text
 import net.minecraft.util.ActionResult
 import top.srcres258.tutorialmod.block.ModBlocks
 import top.srcres258.tutorialmod.component.ModDataComponentTypes
+import top.srcres258.tutorialmod.sound.ModSounds
 
 private val CHISEL_MAP = mapOf<Block, Block>(
     Pair(Blocks.STONE, Blocks.STONE_BRICKS),
@@ -37,8 +37,7 @@ class ChiselItem(settings: Settings) : Item(settings) {
                     context.stack.damage(1, world as ServerWorld, player as ServerPlayerEntity)
                     { item -> player.sendEquipmentBreakStatus(item, EquipmentSlot.MAINHAND) }
 
-                    world.playSound(null, context.blockPos, SoundEvents.BLOCK_GRINDSTONE_USE,
-                        SoundCategory.BLOCKS)
+                    world.playSound(null, context.blockPos, ModSounds.CHISEL_USE, SoundCategory.BLOCKS)
 
                     context.stack.set(ModDataComponentTypes.COORDINATES, context.blockPos)
                 }

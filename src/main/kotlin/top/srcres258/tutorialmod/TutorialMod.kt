@@ -16,6 +16,7 @@ import top.srcres258.tutorialmod.block.ModBlocks
 import top.srcres258.tutorialmod.component.ModDataComponentTypes
 import top.srcres258.tutorialmod.item.ModItemGroups
 import top.srcres258.tutorialmod.item.ModItems
+import top.srcres258.tutorialmod.sound.ModSounds
 import top.srcres258.tutorialmod.util.HammerUsageEvent
 
 object TutorialMod : ModInitializer {
@@ -27,6 +28,7 @@ object TutorialMod : ModInitializer {
 		ModBlocks.registerModBlocks()
 		ModItemGroups.registerItemGroups()
 		ModDataComponentTypes.registerDataComponentTypes()
+		ModSounds.registerSounds()
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600)
 
