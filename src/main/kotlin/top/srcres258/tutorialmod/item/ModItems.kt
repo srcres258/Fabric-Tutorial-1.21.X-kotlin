@@ -12,6 +12,7 @@ import top.srcres258.tutorialmod.TutorialMod
 import top.srcres258.tutorialmod.item.custom.ChiselItem
 import top.srcres258.tutorialmod.item.custom.HammerItem
 import top.srcres258.tutorialmod.item.custom.ModArmorItem
+import top.srcres258.tutorialmod.sound.ModSounds
 
 object ModItems {
     val PINK_GARNET: Item = registerItem("pink_garnet", Item(Item.Settings()))
@@ -68,6 +69,9 @@ object ModItems {
 
     val KAUPEN_BOW: Item = registerItem("kaupen_bow",
         BowItem(Item.Settings().maxDamage(500)))
+
+    val BAR_BRAWL_MUSIC_DISC: Item = registerItem("bar_brawl_music_disc",
+        Item(Item.Settings().jukeboxPlayable(ModSounds.BAR_BRAWL_KEY).maxCount(1)))
 
     private inline fun <reified T : ArmorItem> registerArmorItem(
         name: String,

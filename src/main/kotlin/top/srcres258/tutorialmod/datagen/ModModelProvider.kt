@@ -70,5 +70,7 @@ class ModModelProvider(output: FabricDataOutput) : FabricModelProvider(output) {
 
         generator.register(ModItems.PINK_GARNET_HORSE_ARMOR, Models.GENERATED)
         generator.register(ModItems.KAUPEN_SMITHING_TEMPLATE, Models.GENERATED)
+
+        generator.register(ModItems.BAR_BRAWL_MUSIC_DISC, Models.GENERATED)
     }
 }

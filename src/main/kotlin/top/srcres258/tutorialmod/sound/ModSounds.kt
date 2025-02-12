@@ -1,7 +1,10 @@
 package top.srcres258.tutorialmod.sound
 
+import net.minecraft.block.jukebox.JukeboxSong
 import net.minecraft.registry.Registries
 import net.minecraft.registry.Registry
+import net.minecraft.registry.RegistryKey
+import net.minecraft.registry.RegistryKeys
 import net.minecraft.sound.BlockSoundGroup
 import net.minecraft.sound.SoundEvent
 import net.minecraft.util.Identifier
@@ -20,6 +23,10 @@ object ModSounds {
         1F, 1F,
         MAGIC_BLOCK_BREAK, MAGIC_BLOCK_STEP, MAGIC_BLOCK_PLACE, MAGIC_BLOCK_HIT, MAGIC_BLOCK_FALL
     )
+
+    val BAR_BRAWL: SoundEvent = registerSoundEvent("bar_brawl")
+    val BAR_BRAWL_KEY: RegistryKey<JukeboxSong> =
+        RegistryKey.of(RegistryKeys.JUKEBOX_SONG, Identifier.of(TutorialMod.MOD_ID, "bar_brawl"))
 
     private fun registerSoundEvent(name: String) =
         Identifier.of(TutorialMod.MOD_ID, name).let { id ->
