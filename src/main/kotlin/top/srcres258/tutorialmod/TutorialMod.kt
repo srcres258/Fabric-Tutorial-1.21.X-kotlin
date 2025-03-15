@@ -24,6 +24,7 @@ import top.srcres258.tutorialmod.item.ModItems
 import top.srcres258.tutorialmod.potion.ModPotions
 import top.srcres258.tutorialmod.sound.ModSounds
 import top.srcres258.tutorialmod.util.HammerUsageEvent
+import top.srcres258.tutorialmod.world.gen.ModWorldGeneration
 
 object TutorialMod : ModInitializer {
 	const val MOD_ID = "tutorialmod"
@@ -38,6 +39,7 @@ object TutorialMod : ModInitializer {
 		ModEffects.registerEffects()
 		ModPotions.registerPotions()
 		ModEnchantmentEffects.registerEnchantmentEffects()
+		ModWorldGeneration.generateModWorldGen()
 
 		FuelRegistry.INSTANCE.add(ModItems.STARLIGHT_ASHES, 600)
 

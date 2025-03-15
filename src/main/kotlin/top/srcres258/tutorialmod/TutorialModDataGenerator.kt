@@ -8,6 +8,8 @@ import top.srcres258.tutorialmod.datagen.*
 import top.srcres258.tutorialmod.enchantment.ModEnchantments
 import top.srcres258.tutorialmod.trim.ModTrimMaterials
 import top.srcres258.tutorialmod.trim.ModTrimPatterns
+import top.srcres258.tutorialmod.world.ModConfiguredFeatures
+import top.srcres258.tutorialmod.world.ModPlacedFeatures
 
 object TutorialModDataGenerator : DataGeneratorEntrypoint {
 	override fun onInitializeDataGenerator(fabricDataGenerator: FabricDataGenerator) {
@@ -25,5 +27,8 @@ object TutorialModDataGenerator : DataGeneratorEntrypoint {
 		builder.addRegistry(RegistryKeys.TRIM_MATERIAL, ModTrimMaterials::bootstrap)
 		builder.addRegistry(RegistryKeys.TRIM_PATTERN, ModTrimPatterns::bootstrap)
 		builder.addRegistry(RegistryKeys.ENCHANTMENT, ModEnchantments::bootstrap)
+
+		builder.addRegistry(RegistryKeys.CONFIGURED_FEATURE, ModConfiguredFeatures::bootstrap)
+		builder.addRegistry(RegistryKeys.PLACED_FEATURE, ModPlacedFeatures::bootstrap)
 	}
 }
